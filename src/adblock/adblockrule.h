@@ -65,7 +65,7 @@
 
 #include <QObject>
 #include <QStringList>
-#include <qzregexp.h>
+#include <QRegularExpression>
 
 class QNetworkRequest;
 class QUrl;
@@ -176,7 +176,7 @@ private:
   QStringList m_blockedDomains;
 
   struct RegExp {
-    QzRegExp regExp;
+    QRegularExpression regExp;
     QList<QStringMatcher> matchers;
   };
 

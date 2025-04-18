@@ -267,7 +267,7 @@ bool AdBlockRule::networkMatch(const QNetworkRequest &request, const QString &do
       return false;
     }
 
-    matched = (m_regExp->regExp.indexIn(encodedUrl) != -1);
+    matched = m_regExp->regExp.match(encodedUrl).hasMatch();
   }
 
   if (matched) {
@@ -514,7 +514,11 @@ void AdBlockRule::parseFilter()
 
     m_type = RegExpMatchRule;
     m_regExp = new RegExp;
-    m_regExp->regExp = QzRegExp(parsedLine, m_caseSensitivity);
+    m_regExp->regExp.setPattern(parsedLine);
+    if(m_caseSensitivity == Qt::CaseInsensitive)
+      m_regExp->regExp.setPatternOptions(QRegularExpression::CaseInsensitiveOption | QRegularExpression::DotMatchesEverythingOption);
+    else
+      m_regExp->regExp.setPatternOptions(QRegularExpression::DotMatchesEverythingOption);
     m_regExp->matchers = createStringMatchers(parseRegExpFilter(parsedLine));
     return;
   }
@@ -548,14 +552,18 @@ void AdBlockRule::parseFilter()
   }
 
   // If we still find a wildcard (*) or separator (^) or (|)
-  // we must modify parsedLine to comply with QzRegExp
+  // we must modify parsedLine to comply with QRegularExpression
   if (parsedLine.contains(QL1C('*')) ||
       parsedLine.contains(QL1C('^')) ||
       parsedLine.contains(QL1C('|'))
       ) {
     m_type = RegExpMatchRule;
     m_regExp = new RegExp;
-    m_regExp->regExp = QzRegExp(createRegExpFromFilter(parsedLine), m_caseSensitivity);
+    m_regExp->regExp.setPattern(parsedLine);
+    if(m_caseSensitivity == Qt::CaseInsensitive)
+      m_regExp->regExp.setPatternOptions(QRegularExpression::CaseInsensitiveOption | QRegularExpression::DotMatchesEverythingOption);
+    else
+      m_regExp->regExp.setPatternOptions(QRegularExpression::DotMatchesEverythingOption);
     m_regExp->matchers = createStringMatchers(parseRegExpFilter(parsedLine));
     return;
   }

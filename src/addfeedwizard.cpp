@@ -24,7 +24,7 @@
 #include "settings.h"
 
 #include <QDomDocument>
-#include <qzregexp.h>
+#include <QRegularExpression>
 
 extern QString kCreateNewsTableQuery;
 
@@ -480,14 +480,15 @@ void AddFeedWizard::getUrlDone(int result, int feedId, QString feedUrlStr,
     if (!isFeed) {
       QString str = QString::fromUtf8(data);
 
-      QzRegExp rx("<link[^>]+(atom|rss)\\+xml[^>]+>", Qt::CaseInsensitive);
-      int pos = rx.indexIn(str);
-      if (pos > -1) {
-        str = rx.cap(0);
+      QRegularExpression rx("<link[^>]+(atom|rss)\\+xml[^>]+>", QRegularExpression::CaseInsensitiveOption);
+      QRegularExpressionMatch m = rx.match(str);
+
+      if (m.hasMatch()) {
+        str = m.captured(0);
         rx.setPattern("href=\"([^\"]+)");
-        pos = rx.indexIn(str);
-        if (pos > -1) {
-          QString linkFeedString = rx.cap(1);
+        m = rx.match(str);
+        if (m.hasMatch()) {
+          QString linkFeedString = m.captured(1);
           linkFeedString.replace("&amp;", "&", Qt::CaseInsensitive);
           QUrl url(linkFeedString);
           QUrl feedUrl(feedUrlStr);
@@ -535,7 +536,7 @@ void AddFeedWizard::getUrlDone(int result, int feedId, QString feedUrlStr,
           }
         }
       }
-      if (pos < 0) {
+      else {
         textWarning->setText(tr("Can't find feed URL!"));
         warningWidget_->setVisible(true);
 

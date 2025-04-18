@@ -23,7 +23,7 @@
 
 #include <QDebug>
 #include <QtSql>
-#include <qzregexp.h>
+#include <QRegularExpression>
 
 #define REPLY_MAX_COUNT 10
 
@@ -293,21 +293,18 @@ void RequestFeed::finished(QNetworkReply *reply)
         }
         else {
           QString codecName;
-          QzRegExp rx("charset=([^\t]+)$", Qt::CaseInsensitive);
-          int pos = rx.indexIn(reply->header(QNetworkRequest::ContentTypeHeader).toString());
-          if (pos > -1) {
-            codecName = rx.cap(1);
+          QRegularExpression rx("charset=([^\t]+)$", QRegularExpression::CaseInsensitiveOption);
+          auto m = rx.match(reply->header(QNetworkRequest::ContentTypeHeader).toString());
+          if (m.hasMatch()) {
+            codecName = m.captured(1);
           }
 
           QByteArray data = reply->readAll();
           data = data.trimmed();
 
           rx.setPattern("&(?!([a-z0-9#]+;))");
-          pos = 0;
-          while ((pos = rx.indexIn(QString::fromLatin1(data), pos)) != -1) {
-            data.replace(pos, 1, "&amp;");
-            pos += 1;
-          }
+          for (int i = m.lastCapturedIndex(); i >= 0; --i)
+            data.replace(m.capturedStart(i), 1, "&amp;");
 
           data.replace("<br>", "<br/>");
 
