@@ -17,7 +17,7 @@ exists(.git) {
     system(echo $${LITERAL_HASH}define VCS_SHORT_HASH $$VERSION_HASH >> $$REVFILE)
   } else {
     system(echo \\$${LITERAL_HASH}define VCS_REVISION \\\"$$VERSION_REV\\\" > $$REVFILE)
-    system(echo \\$${LITERAL_HASH}define VCS_SHORT_HASH \\\"$$VERSION_HASH\\\" > $$REVFILE)
+    system(echo \\$${LITERAL_HASH}define VCS_SHORT_HASH \\\"$$VERSION_HASH\\\" >> $$REVFILE)
   }
 } else:!exists($$REVFILE) {
   VERSION_REV = 0
@@ -29,7 +29,7 @@ exists(.git) {
     system(echo $${LITERAL_HASH}define VCS_SHORT_HASH $$VERSION_HASH > $$REVFILE)
   } else {
     system(echo \\$${LITERAL_HASH}define VCS_REVISION \\\"$$VERSION_REV\\\" > $$REVFILE)
-    system(echo \\$${LITERAL_HASH}define VCS_SHORT_HASH \\\"$$VERSION_HASH\\\" > $$REVFILE)
+    system(echo \\$${LITERAL_HASH}define VCS_SHORT_HASH \\\"$$VERSION_HASH\\\" >> $$REVFILE)
   }
 }
 
