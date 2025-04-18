@@ -22,7 +22,6 @@
 #include "settings.h"
 #include "authenticationdialog.h"
 #include "adblockmanager.h"
-#include "webpage.h"
 #include "sslerrordialog.h"
 #if defined(Q_OS_OS2)
 #include "cabundleupdater.h"
@@ -143,7 +142,7 @@ void NetworkManager::loadCertificates()
       }
     }
 #else
-    caCerts_ += QSslCertificate::fromPath(path + "/*.crt", QSsl::Pem, QRegExp::Wildcard);
+    caCerts_ += QSslCertificate::fromPath(path + "/*.crt", QSsl::Pem, QSslCertificate::PatternSyntax::Wildcard);
 #endif
   }
   // Local Certificates
@@ -161,7 +160,7 @@ void NetworkManager::loadCertificates()
     }
   }
 #else
-  localCerts_ = QSslCertificate::fromPath(mainApp->dataDir() + "/certificates/*.crt", QSsl::Pem, QRegExp::Wildcard);
+  localCerts_ = QSslCertificate::fromPath(mainApp->dataDir() + "/certificates/*.crt", QSsl::Pem, QSslCertificate::PatternSyntax::Wildcard);
 #endif
   QSslConfiguration::defaultConfiguration().setCaCertificates(caCerts_ + localCerts_);
 
@@ -195,10 +194,8 @@ void NetworkManager::slotProxyAuthentication(const QNetworkProxy &proxy, QAuthen
   delete authenticationDialog;
 }
 
-static inline uint qHash(const QSslCertificate &cert)
-{
-  return qHash(cert.toPem());
-}
+
+
 
 void NetworkManager::slotSslError(QNetworkReply *reply, QList<QSslError> errors)
 {

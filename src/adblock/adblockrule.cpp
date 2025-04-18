@@ -78,10 +78,14 @@
 static QString toSecondLevelDomain(const QUrl &url)
 {
 #if QT_VERSION >= 0x040800
-  const QString topLevelDomain = url.topLevelDomain();
   const QString urlHost = url.host();
+  QStringRef topLevelDomain;
+  if(urlHost.lastIndexOf('.') == -1)
+    topLevelDomain = urlHost.midRef(urlHost.lastIndexOf('.'));
 
-  if (topLevelDomain.isEmpty() || urlHost.isEmpty()) {
+  if (urlHost.isEmpty() ||
+      topLevelDomain.isNull() ||
+      topLevelDomain.isEmpty()) {
     return QString();
   }
 

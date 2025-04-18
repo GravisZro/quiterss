@@ -2214,16 +2214,14 @@ bool NewsTabWidget::openUrl(const QUrl &url)
     if (returnValue > 32)
       return true;
 #elif defined(Q_OS_MAC)
-    return (QProcess::startDetached("open", QStringList() << "-a" <<
-                                    QString::fromUtf8(mainWindow_->externalBrowser_.toUtf8()) <<
-                                    QString::fromUtf8(url.toEncoded().constData())));
+    return QProcess::startDetached("open", { "-a", mainWindow_->externalBrowser_, url.toString() });
 #else
-    return (QProcess::startDetached(QString::fromUtf8(mainWindow_->externalBrowser_.toUtf8()) + QLatin1Char(' ') +
-                                    QString::fromUtf8(url.toEncoded().constData())));
+    return QProcess::startDetached(mainWindow_->externalBrowser_, { url.toString() });
 #endif
   }
   return QDesktopServices::openUrl(url);
 }
+
 //----------------------------------------------------------------------------
 void NewsTabWidget::slotFindText(const QString &text)
 {

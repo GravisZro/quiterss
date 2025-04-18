@@ -5782,7 +5782,7 @@ void MainWindow::slotPlaySound(const QString &path)
 #if defined(Q_OS_WIN) || defined(Q_OS_OS2)
     QSound::play(soundPath);
 #else
-    QProcess::startDetached(QString("play %1").arg(soundPath));
+    QProcess::startDetached("play", { soundPath });
 #endif
   }
 }

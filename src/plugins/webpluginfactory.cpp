@@ -17,7 +17,6 @@
 * ============================================================ */
 #include "webpluginfactory.h"
 
-#include "mainapplication.h"
 #include "adblockmanager.h"
 #include "webpage.h"
 
@@ -35,6 +34,9 @@ QObject* WebPluginFactory::create(const QString &mimeType, const QUrl &url,
                                   const QStringList &argumentNames,
                                   const QStringList &argumentValues) const
 {
+  Q_UNUSED(mimeType);
+  Q_UNUSED(argumentNames);
+  Q_UNUSED(argumentValues);
   if (url.isEmpty()) {
     return new QObject();
   }
