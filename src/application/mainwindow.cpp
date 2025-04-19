@@ -45,7 +45,7 @@ MainWindow::MainWindow(QWidget *parent)
   , optionsDialog_(NULL)
 {
   setObjectName("mainWindow");
-  setWindowTitle("QuiteRSS");
+  setWindowTitle("RSS4All");
   setContextMenuPolicy(Qt::CustomContextMenu);
 
   db_ = QSqlDatabase::database();
@@ -69,8 +69,6 @@ MainWindow::MainWindow(QWidget *parent)
   setStyleSheet("QMainWindow::separator { width: 1px; }");
 
   loadSettings();
-
-  addOurFeed();
 
   initUpdateFeeds();
 
@@ -7651,8 +7649,8 @@ void MainWindow::setTextTitle(const QString &text, NewsTabWidget *widget)
 {
   if (currentNewsTab != widget) return;
 
-  if (text.isEmpty()) setWindowTitle("QuiteRSS");
-  else setWindowTitle(QString("%1 - QuiteRSS").arg(text));
+  if (text.isEmpty()) setWindowTitle("RSS4All");
+  else setWindowTitle(QString("%1 - RSS4All").arg(text));
 }
 
 /** @brief Enable|Disable indent in feeds tree
@@ -7890,37 +7888,6 @@ void MainWindow::setStatusFeed(int feedId, QString status)
     feedsModel_->setData(indexStatus, status);
     feedsView_->viewport()->update();
   }
-}
-
-void MainWindow::addOurFeed()
-{
-  if (mainApp->dbFileExists()) return;
-
-  QPixmap icon(":/images/quiterss16");
-  QByteArray iconData;
-  QBuffer buffer(&iconData);
-  buffer.open(QIODevice::WriteOnly);
-  icon.save(&buffer, "PNG");
-  buffer.close();
-
-  QString xmlUrl = "https://quiterss.org/en/rss.xml";
-  if (mainApp->language() == "ru")
-    xmlUrl = "https://quiterss.org/ru/rss.xml";
-
-  QSqlQuery q;
-  q.prepare("INSERT INTO feeds(text, title, xmlUrl, htmlUrl, created, parentId, rowToParent, image) "
-            "VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
-  q.addBindValue("QuiteRSS");
-  q.addBindValue("QuiteRSS");
-  q.addBindValue(xmlUrl);
-  q.addBindValue("https://quiterss.org");
-  q.addBindValue(QDateTime::currentDateTimeUtc().toString(Qt::ISODate));
-  q.addBindValue(0);
-  q.addBindValue(0);
-  q.addBindValue(iconData.toBase64());
-  q.exec();
-
-  feedsModelReload();
 }
 
 void MainWindow::createBackup()

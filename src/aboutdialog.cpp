@@ -35,14 +35,11 @@ AboutDialog::AboutDialog(const QString &lang, QWidget *parent) :
     + "<BR>" + tr("Build at") + " " + "<B>" + QString("%1").arg(__BUILD_DATE_AND_TIME__) + "</B>"
     + "</P>"
     + "<BR>"
-    + tr("QuiteRSS is a open-source cross-platform RSS/Atom news reader")
+    + tr("RSS4All is a open-source cross-platform RSS/Atom news reader")
     + "<P>" + tr("Includes:")
     + QString(" Qt-%1, SQLite-%2, WebKit-%4").
     arg(QT_VERSION_STR).arg(SQLITE_VERSION).arg(qWebKitVersion())
     + "</P>"
-    + QString("<a href=\"%1\">%1</a>").arg("https://quiterss.org") +
-    "<P>Copyright &copy; 2011-2021 QuiteRSS Team "
-    + QString("<a href=\"%1\">E-mail</a>").arg("mailto:quiterssteam@gmail.com") + "</P>"
     "</CENTER></body></html>";
   QLabel *infoLabel = new QLabel(appInfo);
   infoLabel->setOpenExternalLinks(true);
@@ -83,7 +80,7 @@ AboutDialog::AboutDialog(const QString &lang, QWidget *parent) :
 
   QTextEdit *licenseTextEdit = new QTextEdit();
   licenseTextEdit->setReadOnly(true);
-  file.setFileName(":/file/COPYING");
+  file.setFileName(":/file/LICENSE");
   file.open(QFile::ReadOnly);
   QString str = QString(QString::fromUtf8(file.readAll())).section("-----", 1, 1);
   licenseTextEdit->setText(str);
