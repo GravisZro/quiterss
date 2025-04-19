@@ -27,8 +27,8 @@
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="38"/>
-        <source>QuiteRSS is a open-source cross-platform RSS/Atom news reader</source>
-        <translation>Το QuiteRSS είναι ένας open-source και cross-platform RSS/Atom αναγνώστης νέων</translation>
+        <source>RSS4All is a open-source cross-platform RSS/Atom news reader</source>
+        <translation>Το RSS4All είναι ένας open-source και cross-platform RSS/Atom αναγνώστης νέων</translation>
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="39"/>
@@ -3021,8 +3021,8 @@ Ancient news could reappear</source>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="325"/>
-        <source>Run QuiteRSS at Windows startup</source>
-        <translation>Εκτέλεση του QuiteRSS κατά την εκκίνηση του Windows</translation>
+        <source>Run RSS4All at Windows startup</source>
+        <translation>Εκτέλεση του RSS4All κατά την εκκίνηση του Windows</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="351"/>
@@ -3031,18 +3031,18 @@ Ancient news could reappear</source>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="354"/>
-        <source>starting QuiteRSS</source>
-        <translation>εκκίνηση του QuiteRSS</translation>
+        <source>starting RSS4All</source>
+        <translation>εκκίνηση του RSS4All</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="355"/>
-        <source>minimizing QuiteRSS</source>
-        <translation>ελαχιστοποίηση του QuiteRSS</translation>
+        <source>minimizing RSS4All</source>
+        <translation>ελαχιστοποίηση του RSS4All</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="356"/>
-        <source>closing QuiteRSS</source>
-        <translation>κλείσιμο του QuiteRSS</translation>
+        <source>closing RSS4All</source>
+        <translation>κλείσιμο του RSS4All</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="363"/>

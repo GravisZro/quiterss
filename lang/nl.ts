@@ -27,8 +27,8 @@
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="38"/>
-        <source>QuiteRSS is a open-source cross-platform RSS/Atom news reader</source>
-        <translation>QuiteRSS is een open source RSS/Atom lezer, tussen verschillende besturingssystemen</translation>
+        <source>RSS4All is a open-source cross-platform RSS/Atom news reader</source>
+        <translation>RSS4All is een open source RSS/Atom lezer, tussen verschillende besturingssystemen</translation>
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="39"/>
@@ -38,7 +38,7 @@
     <message>
         <location filename="../src/aboutdialog.cpp" line="110"/>
         <source>Application directory:</source>
-        <translation>QuiteRSS map:</translation>
+        <translation>RSS4All map:</translation>
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="113"/>
@@ -2187,7 +2187,7 @@ werd niet gevonden</translation>
     <message>
         <location filename="../src/application/mainwindow.cpp" line="4847"/>
         <source>Minimize Application to Tray</source>
-        <translation>Minimaliseer QuiteRSS naar Systeemvak</translation>
+        <translation>Minimaliseer RSS4All naar Systeemvak</translation>
     </message>
     <message>
         <location filename="../src/application/mainwindow.cpp" line="4849"/>
@@ -3021,8 +3021,8 @@ werd niet gevonden</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="325"/>
-        <source>Run QuiteRSS at Windows startup</source>
-        <translation>QuiteRSS laden tijdens opstarten</translation>
+        <source>Run RSS4All at Windows startup</source>
+        <translation>RSS4All laden tijdens opstarten</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="351"/>
@@ -3031,18 +3031,18 @@ werd niet gevonden</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="354"/>
-        <source>starting QuiteRSS</source>
-        <translation>Start QuiteRSS</translation>
+        <source>starting RSS4All</source>
+        <translation>Start RSS4All</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="355"/>
-        <source>minimizing QuiteRSS</source>
-        <translation>minimaliseren QuiteRSS</translation>
+        <source>minimizing RSS4All</source>
+        <translation>minimaliseren RSS4All</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="356"/>
-        <source>closing QuiteRSS</source>
-        <translation>Sluiten QuiteRSS</translation>
+        <source>closing RSS4All</source>
+        <translation>Sluiten RSS4All</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="363"/>

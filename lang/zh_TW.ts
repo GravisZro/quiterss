@@ -6,7 +6,7 @@
     <message>
         <location filename="../src/aboutdialog.cpp" line="13"/>
         <source>About</source>
-        <translation>關於 QuiteRSS</translation>
+        <translation>關於 RSS4All</translation>
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="22"/>
@@ -27,8 +27,8 @@
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="38"/>
-        <source>QuiteRSS is a open-source cross-platform RSS/Atom news reader</source>
-        <translation>QuiteRSS 是一個開放源碼的跨平台 RSS/Atom 規格新聞閱讀器</translation>
+        <source>RSS4All is a open-source cross-platform RSS/Atom news reader</source>
+        <translation>RSS4All 是一個開放源碼的跨平台 RSS/Atom 規格新聞閱讀器</translation>
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="39"/>
@@ -3021,8 +3021,8 @@ Ancient news could reappear</source>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="325"/>
-        <source>Run QuiteRSS at Windows startup</source>
-        <translation>在 Windows 啟動時執行 QuiteRSS</translation>
+        <source>Run RSS4All at Windows startup</source>
+        <translation>在 Windows 啟動時執行 RSS4All</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="351"/>
@@ -3031,18 +3031,18 @@ Ancient news could reappear</source>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="354"/>
-        <source>starting QuiteRSS</source>
-        <translation>啟動 QuiteRSS</translation>
+        <source>starting RSS4All</source>
+        <translation>啟動 RSS4All</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="355"/>
-        <source>minimizing QuiteRSS</source>
-        <translation>最小化 QuiteRSS</translation>
+        <source>minimizing RSS4All</source>
+        <translation>最小化 RSS4All</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="356"/>
-        <source>closing QuiteRSS</source>
-        <translation>關閉 QuiteRSS</translation>
+        <source>closing RSS4All</source>
+        <translation>關閉 RSS4All</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="363"/>

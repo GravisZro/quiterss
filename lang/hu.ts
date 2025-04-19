@@ -27,8 +27,8 @@
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="38"/>
-        <source>QuiteRSS is a open-source cross-platform RSS/Atom news reader</source>
-        <translation>A QuiteRSS egy nyílt forrású kereszt-platformos RSS/Atom hírolvasó</translation>
+        <source>RSS4All is a open-source cross-platform RSS/Atom news reader</source>
+        <translation>A RSS4All egy nyílt forrású kereszt-platformos RSS/Atom hírolvasó</translation>
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="39"/>
@@ -3021,8 +3021,8 @@ Ancient news could reappear</source>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="325"/>
-        <source>Run QuiteRSS at Windows startup</source>
-        <translation>A QuiteRSS futtatása a Windows indításakor</translation>
+        <source>Run RSS4All at Windows startup</source>
+        <translation>A RSS4All futtatása a Windows indításakor</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="351"/>
@@ -3031,18 +3031,18 @@ Ancient news could reappear</source>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="354"/>
-        <source>starting QuiteRSS</source>
-        <translation>A QuiteRSS indításakor</translation>
+        <source>starting RSS4All</source>
+        <translation>A RSS4All indításakor</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="355"/>
-        <source>minimizing QuiteRSS</source>
-        <translation>A QuiteRSS minimalizálásakor</translation>
+        <source>minimizing RSS4All</source>
+        <translation>A RSS4All minimalizálásakor</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="356"/>
-        <source>closing QuiteRSS</source>
-        <translation>A QuiteRSS bezárásakor</translation>
+        <source>closing RSS4All</source>
+        <translation>A RSS4All bezárásakor</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="363"/>

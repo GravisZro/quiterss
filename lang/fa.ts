@@ -27,7 +27,7 @@
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="38"/>
-        <source>QuiteRSS is a open-source cross-platform RSS/Atom news reader</source>
+        <source>RSS4All is a open-source cross-platform RSS/Atom news reader</source>
         <translation>کوآیت آر اِس اِس یک برنامه متن باز خواننده اخبار آر اِس اِس/اِی تی لو اِم هست</translation>
     </message>
     <message>
@@ -3021,7 +3021,7 @@ Ancient news could reappear</source>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="325"/>
-        <source>Run QuiteRSS at Windows startup</source>
+        <source>Run RSS4All at Windows startup</source>
         <translation>اِجرای برنامه در اِستارت آپ ویندوز</translation>
     </message>
     <message>
@@ -3031,17 +3031,17 @@ Ancient news could reappear</source>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="354"/>
-        <source>starting QuiteRSS</source>
+        <source>starting RSS4All</source>
         <translation>شروع برنامه</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="355"/>
-        <source>minimizing QuiteRSS</source>
+        <source>minimizing RSS4All</source>
         <translation>کمینه کردن برنامه</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="356"/>
-        <source>closing QuiteRSS</source>
+        <source>closing RSS4All</source>
         <translation>بستن برنامه</translation>
     </message>
     <message>

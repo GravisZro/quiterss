@@ -27,8 +27,8 @@
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="38"/>
-        <source>QuiteRSS is a open-source cross-platform RSS/Atom news reader</source>
-        <translation>QuiteRSS é um visualizador de notícias multi-plataforma e de código livre</translation>
+        <source>RSS4All is a open-source cross-platform RSS/Atom news reader</source>
+        <translation>RSS4All é um visualizador de notícias multi-plataforma e de código livre</translation>
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="39"/>
@@ -3021,8 +3021,8 @@ não existe!</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="325"/>
-        <source>Run QuiteRSS at Windows startup</source>
-        <translation>Iniciar QuiteRSS ao arrancar o Windows</translation>
+        <source>Run RSS4All at Windows startup</source>
+        <translation>Iniciar RSS4All ao arrancar o Windows</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="351"/>
@@ -3031,18 +3031,18 @@ não existe!</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="354"/>
-        <source>starting QuiteRSS</source>
-        <translation>iniciar o QuiteRSS</translation>
+        <source>starting RSS4All</source>
+        <translation>iniciar o RSS4All</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="355"/>
-        <source>minimizing QuiteRSS</source>
-        <translation>minimizar o QuiteRSS</translation>
+        <source>minimizing RSS4All</source>
+        <translation>minimizar o RSS4All</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="356"/>
-        <source>closing QuiteRSS</source>
-        <translation>fechar o QuiteRSS</translation>
+        <source>closing RSS4All</source>
+        <translation>fechar o RSS4All</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="363"/>

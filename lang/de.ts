@@ -27,8 +27,8 @@
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="38"/>
-        <source>QuiteRSS is a open-source cross-platform RSS/Atom news reader</source>
-        <translation>QuiteRSS ist ein quelloffener plattformübergreifender RSS/Atom-Newsreader</translation>
+        <source>RSS4All is a open-source cross-platform RSS/Atom news reader</source>
+        <translation>RSS4All ist ein quelloffener plattformübergreifender RSS/Atom-Newsreader</translation>
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="39"/>
@@ -3019,8 +3019,8 @@ Ancient news could reappear</source>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="325"/>
-        <source>Run QuiteRSS at Windows startup</source>
-        <translation>QuiteRSS mit Windows starten</translation>
+        <source>Run RSS4All at Windows startup</source>
+        <translation>RSS4All mit Windows starten</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="351"/>
@@ -3029,18 +3029,18 @@ Ancient news could reappear</source>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="354"/>
-        <source>starting QuiteRSS</source>
-        <translation>QuiteRSS gestartet wird</translation>
+        <source>starting RSS4All</source>
+        <translation>RSS4All gestartet wird</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="355"/>
-        <source>minimizing QuiteRSS</source>
-        <translation>QuiteRSS minimiert wird</translation>
+        <source>minimizing RSS4All</source>
+        <translation>RSS4All minimiert wird</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="356"/>
-        <source>closing QuiteRSS</source>
-        <translation>QuiteRSS beendet wird</translation>
+        <source>closing RSS4All</source>
+        <translation>RSS4All beendet wird</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="363"/>

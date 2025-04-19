@@ -27,8 +27,8 @@
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="38"/>
-        <source>QuiteRSS is a open-source cross-platform RSS/Atom news reader</source>
-        <translation>QuiteRSS — кросплатформна програма з відкритим вихідним кодом, призначена для читання RSS/Atom новин </translation>
+        <source>RSS4All is a open-source cross-platform RSS/Atom news reader</source>
+        <translation>RSS4All — кросплатформна програма з відкритим вихідним кодом, призначена для читання RSS/Atom новин </translation>
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="39"/>
@@ -3019,8 +3019,8 @@ Ancient news could reappear</source>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="325"/>
-        <source>Run QuiteRSS at Windows startup</source>
-        <translation>Запускати QuiteRSS при завантаженні Windows</translation>
+        <source>Run RSS4All at Windows startup</source>
+        <translation>Запускати RSS4All при завантаженні Windows</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="351"/>
@@ -3029,18 +3029,18 @@ Ancient news could reappear</source>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="354"/>
-        <source>starting QuiteRSS</source>
-        <translation>при завантаженні QuiteRSS</translation>
+        <source>starting RSS4All</source>
+        <translation>при завантаженні RSS4All</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="355"/>
-        <source>minimizing QuiteRSS</source>
-        <translation>при мінімізації QuiteRSS</translation>
+        <source>minimizing RSS4All</source>
+        <translation>при мінімізації RSS4All</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="356"/>
-        <source>closing QuiteRSS</source>
-        <translation>при закритті QuiteRSS</translation>
+        <source>closing RSS4All</source>
+        <translation>при закритті RSS4All</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="363"/>

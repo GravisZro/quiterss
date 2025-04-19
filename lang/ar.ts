@@ -27,8 +27,8 @@
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="38"/>
-        <source>QuiteRSS is a open-source cross-platform RSS/Atom news reader</source>
-        <translation>QuiteRSS برنامج مفتوح المصدر متعدد المنصات قارئ خلاصات اخبار RSS/Atom</translation>
+        <source>RSS4All is a open-source cross-platform RSS/Atom news reader</source>
+        <translation>RSS4All برنامج مفتوح المصدر متعدد المنصات قارئ خلاصات اخبار RSS/Atom</translation>
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="39"/>
@@ -3021,8 +3021,8 @@ Ancient news could reappear</source>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="325"/>
-        <source>Run QuiteRSS at Windows startup</source>
-        <translation>تشغيل QuiteRSS عند بدء تشغيل النظام</translation>
+        <source>Run RSS4All at Windows startup</source>
+        <translation>تشغيل RSS4All عند بدء تشغيل النظام</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="351"/>
@@ -3031,18 +3031,18 @@ Ancient news could reappear</source>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="354"/>
-        <source>starting QuiteRSS</source>
-        <translation>تشغيل QuiteRSS</translation>
+        <source>starting RSS4All</source>
+        <translation>تشغيل RSS4All</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="355"/>
-        <source>minimizing QuiteRSS</source>
-        <translation>تصغير QuiteRSS</translation>
+        <source>minimizing RSS4All</source>
+        <translation>تصغير RSS4All</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="356"/>
-        <source>closing QuiteRSS</source>
-        <translation>اغلاق QuiteRSS</translation>
+        <source>closing RSS4All</source>
+        <translation>اغلاق RSS4All</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="363"/>

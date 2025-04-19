@@ -27,8 +27,8 @@
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="38"/>
-        <source>QuiteRSS is a open-source cross-platform RSS/Atom news reader</source>
-        <translation>QuiteRSS là một chương trình mã nguồn-mở và đa-nền tảng để đọc các tin tức dạng RSS/Atom</translation>
+        <source>RSS4All is a open-source cross-platform RSS/Atom news reader</source>
+        <translation>RSS4All là một chương trình mã nguồn-mở và đa-nền tảng để đọc các tin tức dạng RSS/Atom</translation>
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="39"/>
@@ -3021,8 +3021,8 @@ không được tìm thấy!</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="325"/>
-        <source>Run QuiteRSS at Windows startup</source>
-        <translation>Chạy QuiteRSS khi Windows được khởi động</translation>
+        <source>Run RSS4All at Windows startup</source>
+        <translation>Chạy RSS4All khi Windows được khởi động</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="351"/>
@@ -3031,18 +3031,18 @@ không được tìm thấy!</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="354"/>
-        <source>starting QuiteRSS</source>
-        <translation>Đang bắt đầu QuiteRSS</translation>
+        <source>starting RSS4All</source>
+        <translation>Đang bắt đầu RSS4All</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="355"/>
-        <source>minimizing QuiteRSS</source>
-        <translation>đang thu nhỏ QuiteRSS</translation>
+        <source>minimizing RSS4All</source>
+        <translation>đang thu nhỏ RSS4All</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="356"/>
-        <source>closing QuiteRSS</source>
-        <translation>đang đóng lại QuiteRSS</translation>
+        <source>closing RSS4All</source>
+        <translation>đang đóng lại RSS4All</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="363"/>

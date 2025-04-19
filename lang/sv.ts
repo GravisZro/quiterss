@@ -27,8 +27,8 @@
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="38"/>
-        <source>QuiteRSS is a open-source cross-platform RSS/Atom news reader</source>
-        <translation>QuiteRSS är en plattformsoberoende RSS/Atom flödesläsare</translation>
+        <source>RSS4All is a open-source cross-platform RSS/Atom news reader</source>
+        <translation>RSS4All är en plattformsoberoende RSS/Atom flödesläsare</translation>
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="39"/>
@@ -3021,8 +3021,8 @@ kunde inte hittas!</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="325"/>
-        <source>Run QuiteRSS at Windows startup</source>
-        <translation>Starta QuiteRSS automatiskt vid systemstart</translation>
+        <source>Run RSS4All at Windows startup</source>
+        <translation>Starta RSS4All automatiskt vid systemstart</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="351"/>
@@ -3031,18 +3031,18 @@ kunde inte hittas!</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="354"/>
-        <source>starting QuiteRSS</source>
-        <translation>QuiteRSS startas</translation>
+        <source>starting RSS4All</source>
+        <translation>RSS4All startas</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="355"/>
-        <source>minimizing QuiteRSS</source>
-        <translation>QuiteRSS minimeras</translation>
+        <source>minimizing RSS4All</source>
+        <translation>RSS4All minimeras</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="356"/>
-        <source>closing QuiteRSS</source>
-        <translation>QuiteRSS stängs</translation>
+        <source>closing RSS4All</source>
+        <translation>RSS4All stängs</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="363"/>
@@ -3142,7 +3142,7 @@ kunde inte hittas!</translation>
     <message>
         <location filename="../src/optionsdialog.cpp" line="496"/>
         <source>Options network requests when updating feeds (requires program restart):</source>
-        <translation>Nätverksförfrågningar när flöden uppdateras (kräver omstart av QuiteRSS):</translation>
+        <translation>Nätverksförfrågningar när flöden uppdateras (kräver omstart av RSS4All):</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="513"/>

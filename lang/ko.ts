@@ -6,7 +6,7 @@
     <message>
         <location filename="../src/aboutdialog.cpp" line="13"/>
         <source>About</source>
-        <translation>QuiteRSS 정보</translation>
+        <translation>RSS4All 정보</translation>
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="22"/>
@@ -27,7 +27,7 @@
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="38"/>
-        <source>QuiteRSS is a open-source cross-platform RSS/Atom news reader</source>
+        <source>RSS4All is a open-source cross-platform RSS/Atom news reader</source>
         <translation>QuiteRss는 오픈소스로 크로스 플랫폼 RSS/Atom 뉴스 리더입니다</translation>
     </message>
     <message>
@@ -1743,12 +1743,12 @@ Ancient news could reappear</source>
     <message>
         <location filename="../src/application/mainwindow.cpp" line="4751"/>
         <source>About...</source>
-        <translation>QuiteRSS 정보...</translation>
+        <translation>RSS4All 정보...</translation>
     </message>
     <message>
         <location filename="../src/application/mainwindow.cpp" line="4752"/>
         <source>Show &apos;About&apos; Dialog</source>
-        <translation>QuiteRSS 정보창 보기</translation>
+        <translation>RSS4All 정보창 보기</translation>
     </message>
     <message>
         <location filename="../src/application/mainwindow.cpp" line="4754"/>
@@ -3021,7 +3021,7 @@ Ancient news could reappear</source>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="325"/>
-        <source>Run QuiteRSS at Windows startup</source>
+        <source>Run RSS4All at Windows startup</source>
         <translation>윈도우 시작시 QuiteRss 실행</translation>
     </message>
     <message>
@@ -3031,17 +3031,17 @@ Ancient news could reappear</source>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="354"/>
-        <source>starting QuiteRSS</source>
+        <source>starting RSS4All</source>
         <translation>QuiteRss 시작시</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="355"/>
-        <source>minimizing QuiteRSS</source>
+        <source>minimizing RSS4All</source>
         <translation>QuiteRss 최소화시</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="356"/>
-        <source>closing QuiteRSS</source>
+        <source>closing RSS4All</source>
         <translation>QuiteRss 닫을때</translation>
     </message>
     <message>

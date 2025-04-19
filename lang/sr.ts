@@ -27,8 +27,8 @@
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="38"/>
-        <source>QuiteRSS is a open-source cross-platform RSS/Atom news reader</source>
-        <translation>QuiteRSS је читач вести отвореног извора</translation>
+        <source>RSS4All is a open-source cross-platform RSS/Atom news reader</source>
+        <translation>RSS4All је читач вести отвореног извора</translation>
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="39"/>
@@ -3021,8 +3021,8 @@ Ancient news could reappear</source>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="325"/>
-        <source>Run QuiteRSS at Windows startup</source>
-        <translation>Покрени QuiteRSS са системом</translation>
+        <source>Run RSS4All at Windows startup</source>
+        <translation>Покрени RSS4All са системом</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="351"/>
@@ -3031,18 +3031,18 @@ Ancient news could reappear</source>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="354"/>
-        <source>starting QuiteRSS</source>
-        <translation>покретање QuiteRSS-а</translation>
+        <source>starting RSS4All</source>
+        <translation>покретање RSS4All-а</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="355"/>
-        <source>minimizing QuiteRSS</source>
-        <translation>умањивање QuiteRSS-а</translation>
+        <source>minimizing RSS4All</source>
+        <translation>умањивање RSS4All-а</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="356"/>
-        <source>closing QuiteRSS</source>
-        <translation>затварање QuiteRSS-а</translation>
+        <source>closing RSS4All</source>
+        <translation>затварање RSS4All-а</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="363"/>

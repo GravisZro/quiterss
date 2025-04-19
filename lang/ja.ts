@@ -6,7 +6,7 @@
     <message>
         <location filename="../src/aboutdialog.cpp" line="13"/>
         <source>About</source>
-        <translation>QuiteRSS について</translation>
+        <translation>RSS4All について</translation>
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="22"/>
@@ -27,8 +27,8 @@
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="38"/>
-        <source>QuiteRSS is a open-source cross-platform RSS/Atom news reader</source>
-        <translation>QuiteRSS はオープンソースでクロスプラットホームな RSS/Atom ニュースリーダーです</translation>
+        <source>RSS4All is a open-source cross-platform RSS/Atom news reader</source>
+        <translation>RSS4All はオープンソースでクロスプラットホームな RSS/Atom ニュースリーダーです</translation>
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="39"/>
@@ -1743,7 +1743,7 @@ Ancient news could reappear</source>
     <message>
         <location filename="../src/application/mainwindow.cpp" line="4751"/>
         <source>About...</source>
-        <translation>QuiteRSS について...</translation>
+        <translation>RSS4All について...</translation>
     </message>
     <message>
         <location filename="../src/application/mainwindow.cpp" line="4752"/>
@@ -3021,8 +3021,8 @@ Ancient news could reappear</source>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="325"/>
-        <source>Run QuiteRSS at Windows startup</source>
-        <translation>Windows 起動時に QuiteRSS を起動する</translation>
+        <source>Run RSS4All at Windows startup</source>
+        <translation>Windows 起動時に RSS4All を起動する</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="351"/>
@@ -3031,18 +3031,18 @@ Ancient news could reappear</source>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="354"/>
-        <source>starting QuiteRSS</source>
-        <translation>QuiteRSS を起動した時</translation>
+        <source>starting RSS4All</source>
+        <translation>RSS4All を起動した時</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="355"/>
-        <source>minimizing QuiteRSS</source>
-        <translation>QuiteRSS を最小化した時</translation>
+        <source>minimizing RSS4All</source>
+        <translation>RSS4All を最小化した時</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="356"/>
-        <source>closing QuiteRSS</source>
-        <translation>QuiteRSS を閉じた時</translation>
+        <source>closing RSS4All</source>
+        <translation>RSS4All を閉じた時</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="363"/>

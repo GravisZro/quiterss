@@ -27,8 +27,8 @@
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="38"/>
-        <source>QuiteRSS is a open-source cross-platform RSS/Atom news reader</source>
-        <translation>QuiteRSS je open-source multi-platformná RSS/Atom čítačka</translation>
+        <source>RSS4All is a open-source cross-platform RSS/Atom news reader</source>
+        <translation>RSS4All je open-source multi-platformná RSS/Atom čítačka</translation>
     </message>
     <message>
         <location filename="../src/aboutdialog.cpp" line="39"/>
@@ -3019,8 +3019,8 @@ Staré správy sa môžu znova objaviť</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="325"/>
-        <source>Run QuiteRSS at Windows startup</source>
-        <translation>Spustiť QuiteRSS pri spustení Windowsu</translation>
+        <source>Run RSS4All at Windows startup</source>
+        <translation>Spustiť RSS4All pri spustení Windowsu</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="351"/>
@@ -3029,18 +3029,18 @@ Staré správy sa môžu znova objaviť</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="354"/>
-        <source>starting QuiteRSS</source>
-        <translation>spustení QuiteRSS</translation>
+        <source>starting RSS4All</source>
+        <translation>spustení RSS4All</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="355"/>
-        <source>minimizing QuiteRSS</source>
-        <translation>minimalizovaní QuiteRSS</translation>
+        <source>minimizing RSS4All</source>
+        <translation>minimalizovaní RSS4All</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="356"/>
-        <source>closing QuiteRSS</source>
-        <translation>zatvorení QuiteRSS</translation>
+        <source>closing RSS4All</source>
+        <translation>zatvorení RSS4All</translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="363"/>
