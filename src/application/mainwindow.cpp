@@ -25,6 +25,7 @@
 #include <qzregexp.h>
 
 #include "globals.h"
+#include "VersionNo.h"
 
 // ---------------------------------------------------------------------------
 MainWindow::MainWindow(QWidget *parent)

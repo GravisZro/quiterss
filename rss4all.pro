@@ -1,6 +1,7 @@
 # VCS revision info
 REVFILE = src/VersionRev.h
 QMAKE_DISTCLEAN += $$REVFILE
+APPLICATION_NAME = "RSS4All"
 exists(.git) {
   VERSION_REV = $$system(git rev-list --count HEAD)
   count(VERSION_REV, 1) {
@@ -13,10 +14,12 @@ exists(.git) {
   !build_pass:message(VCS revision: $$VERSION_REV VCS short hash:$$VERSION_HASH)
 
   os2|win32 {
-    system(echo $${LITERAL_HASH}define VCS_REVISION $$VERSION_REV > $$REVFILE)
+    system(echo $${LITERAL_HASH}define APPLICATION_NAME $$APPLICATION_NAME > $$REVFILE)
+    system(echo $${LITERAL_HASH}define VCS_REVISION $$VERSION_REV >> $$REVFILE)
     system(echo $${LITERAL_HASH}define VCS_SHORT_HASH $$VERSION_HASH >> $$REVFILE)
   } else {
-    system(echo \\$${LITERAL_HASH}define VCS_REVISION \\\"$$VERSION_REV\\\" > $$REVFILE)
+    system(echo \\$${LITERAL_HASH}define APPLICATION_NAME \\\"$$APPLICATION_NAME\\\" > $$REVFILE)
+    system(echo \\$${LITERAL_HASH}define VCS_REVISION \\\"$$VERSION_REV\\\" >> $$REVFILE)
     system(echo \\$${LITERAL_HASH}define VCS_SHORT_HASH \\\"$$VERSION_HASH\\\" >> $$REVFILE)
   }
 } else:!exists($$REVFILE) {
@@ -25,9 +28,11 @@ exists(.git) {
   !build_pass:message(VCS revision: $$VERSION_REV VCS short hash:$$VERSION_HASH)
 
   os2|win32 {
+    system(echo $${LITERAL_HASH}define APPLICATION_NAME $$APPLICATION_NAME > $$REVFILE)
     system(echo $${LITERAL_HASH}define VCS_REVISION $$VERSION_REV > $$REVFILE)
     system(echo $${LITERAL_HASH}define VCS_SHORT_HASH $$VERSION_HASH > $$REVFILE)
   } else {
+    system(echo \\$${LITERAL_HASH}define APPLICATION_NAME \\\"$$APPLICATION_NAME\\\" > $$REVFILE)
     system(echo \\$${LITERAL_HASH}define VCS_REVISION \\\"$$VERSION_REV\\\" > $$REVFILE)
     system(echo \\$${LITERAL_HASH}define VCS_SHORT_HASH \\\"$$VERSION_HASH\\\" >> $$REVFILE)
   }
