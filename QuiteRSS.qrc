@@ -103,7 +103,7 @@
     </qresource>
     <qresource prefix="/file">
         <file>AUTHORS</file>
-        <file>COPYING</file>
+        <file>LICENSE</file>
         <file>HISTORY_EN</file>
         <file>HISTORY_RU</file>
     </qresource>

@@ -278,7 +278,7 @@ os2|win32 {
 DISTFILES += \
     HISTORY_RU \
     HISTORY_EN \
-    COPYING \
+    LICENSE \
     AUTHORS \
     CHANGELOG \
     README.md
@@ -339,7 +339,7 @@ mac {
   ICON = quiterss.icns
 
   bundle_target.files += AUTHORS
-  bundle_target.files += COPYING
+  bundle_target.files += LICENSE
   bundle_target.files += CHANGELOG
   bundle_target.files += README.md
   bundle_target.files += sound
@@ -363,7 +363,7 @@ CODECFORSRC = UTF-8
 OTHER_FILES += \
     HISTORY_RU \
     HISTORY_EN \
-    COPYING \
+    LICENSE \
     AUTHORS \
     CHANGELOG \
     INSTALL \
