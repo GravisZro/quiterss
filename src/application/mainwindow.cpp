@@ -1925,7 +1925,7 @@ void MainWindow::loadSettings()
 
   saveDBMemFileMiniSystemTray_ = settings.value("saveDBMemFileMiniSystemTray", true).toBool();
 
-  externalBrowserOn_ = settings.value("externalBrowserOn", 0).toInt();
+  externalBrowserOn_ = static_cast<Browser>(settings.value("externalBrowserOn", 0).toInt());
   externalBrowser_ = settings.value("externalBrowser", "").toString();
   javaScriptEnable_ = settings.value("javaScriptEnable", true).toBool();
   pluginsEnable_ = settings.value("pluginsEnable", true).toBool();
@@ -2242,7 +2242,7 @@ void MainWindow::saveSettings()
   settings.setValue("cleanUpDeleted", cleanUpDeleted_);
   settings.setValue("optimizeDB", optimizeDB_);
 
-  settings.setValue("externalBrowserOn", externalBrowserOn_);
+  settings.setValue("externalBrowserOn", static_cast<int>(externalBrowserOn_));
   settings.setValue("externalBrowser", externalBrowser_);
   settings.setValue("javaScriptEnable", javaScriptEnable_);
   settings.setValue("pluginsEnable", pluginsEnable_);
@@ -3203,12 +3203,15 @@ void MainWindow::showOptionDlg(int index)
   optionsDialog_->numberRequests_->setValue(numberRequests);
   optionsDialog_->numberRepeats_->setValue(numberRepeats);
 
-  optionsDialog_->embeddedBrowserOn_->setChecked(externalBrowserOn_ <= 0);
-  optionsDialog_->externalBrowserOn_->setChecked(externalBrowserOn_ >= 1);
-  optionsDialog_->defaultExternalBrowserOn_->setChecked((externalBrowserOn_ == 0) ||
-                                                        (externalBrowserOn_ == 1));
-  optionsDialog_->otherExternalBrowserOn_->setChecked((externalBrowserOn_ == -1) ||
-                                                      (externalBrowserOn_ == 2));
+  optionsDialog_->embeddedBrowserOn_->setChecked(externalBrowserOn_ == Browser::internal ||
+                                                 externalBrowserOn_ == Browser::external);
+  optionsDialog_->externalBrowserOn_->setChecked(externalBrowserOn_ == Browser::externalDefault ||
+                                                 externalBrowserOn_ == Browser::externalSpecific);
+
+  optionsDialog_->defaultExternalBrowserOn_->setChecked(externalBrowserOn_ == Browser::externalDefault ||
+                                                        externalBrowserOn_ == Browser::externalSpecific);
+  optionsDialog_->otherExternalBrowserOn_->setChecked(externalBrowserOn_ == Browser::internal ||
+                                                      externalBrowserOn_ == Browser::externalSpecific);
   optionsDialog_->otherExternalBrowserEdit_->setText(externalBrowser_);
   optionsDialog_->autoLoadImages_->setChecked(autoLoadImages_);
   optionsDialog_->javaScriptEnable_->setChecked(javaScriptEnable_);
@@ -3630,14 +3633,14 @@ void MainWindow::showOptionDlg(int index)
 
   if (optionsDialog_->embeddedBrowserOn_->isChecked()) {
     if (optionsDialog_->defaultExternalBrowserOn_->isChecked())
-      externalBrowserOn_ = 0;
+      externalBrowserOn_ = Browser::external;
     else
-      externalBrowserOn_ = -1;
+      externalBrowserOn_ = Browser::internal;
   } else {
     if (optionsDialog_->defaultExternalBrowserOn_->isChecked())
-      externalBrowserOn_ = 1;
+      externalBrowserOn_ = Browser::externalDefault;
     else
-      externalBrowserOn_ = 2;
+      externalBrowserOn_ = Browser::externalSpecific;
   }
 
   externalBrowser_ = optionsDialog_->otherExternalBrowserEdit_->text();
@@ -7479,7 +7482,7 @@ void MainWindow::slotSavePageAs()
     QString html = currentNewsTab->webView_->page()->mainFrame()->toHtml();
     QzRegExp reg("news_descriptions", Qt::CaseInsensitive);
     html = html.replace(reg, title);
-    reg.setPattern("<img class=\"quiterss-img\"[^>]+\\>");
+    reg.setPattern("<img class=\"internal-img\"[^>]+\\>");
     html = html.remove(reg);
     QTextCodec *codec = QTextCodec::codecForHtml(html.toUtf8(),
                                                  QTextCodec::codecForName("UTF-8"));

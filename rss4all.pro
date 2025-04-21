@@ -355,7 +355,7 @@ mac {
 }
 
 RESOURCES += \
-    QuiteRSS.qrc
+  resources.qrc
 
 CODECFORTR  = UTF-8
 CODECFORSRC = UTF-8

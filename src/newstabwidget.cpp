@@ -509,7 +509,8 @@ void NewsTabWidget::setSettings(bool init, bool newTab)
       file.close();
     }
 
-    if (mainWindow_->externalBrowserOn_ <= 0) {
+    if (mainWindow_->externalBrowserOn_ == Browser::internal ||
+        mainWindow_->externalBrowserOn_ == Browser::external) {
       webView_->page()->setLinkDelegationPolicy(QWebPage::DelegateAllLinks);
     } else {
       webView_->page()->setLinkDelegationPolicy(QWebPage::DelegateExternalLinks);
@@ -1343,7 +1344,9 @@ void NewsTabWidget::updateWebView(QModelIndex index)
     showDescriptionNews_ = !displayNews.toInt();
 
   if (!showDescriptionNews_) {
-    if (mainWindow_->externalBrowserOn_ <= 0) {
+    if (mainWindow_->externalBrowserOn_ == Browser::internal ||
+        mainWindow_->externalBrowserOn_ == Browser::external)
+    {
       locationBar_->setText(newsUrl.toString());
       setWebToolbarVisible(true, false);
 
@@ -1636,16 +1639,16 @@ void NewsTabWidget::loadNewspaper(int refresh)
         iconStr = "qrc:/images/bulletUnread";
         titleStyle = "unread";
       }
-      QString readImg = QString("<a href=\"quiterss://read.action.ui?#%1\" title='%3'>"
-                                "<img class='quiterss-img' id=\"readAction%1\" src=\"%2\"/></a>").
+      QString readImg = QString("<a href=\"internal://read.action.ui?#%1\" title='%3'>"
+                                "<img class='internal-img' id=\"readAction%1\" src=\"%2\"/></a>").
           arg(newsId).arg(iconStr).arg(tr("Mark Read/Unread"));
 
       QString feedImg;
       QByteArray byteArray = feedsModel_->dataField(feedIndex, "image").toByteArray();
       if (!byteArray.isEmpty())
-        feedImg = QString("<img class='quiterss-img' src=\"data:image/png;base64,") % byteArray % "\"/>";
+        feedImg = QString("<img class='internal-img' src=\"data:image/png;base64,") % byteArray % "\"/>";
       else
-        feedImg = QString("<img class='quiterss-img' src=\"qrc:/images/feed\"/>");
+        feedImg = QString("<img class='internal-img' src=\"qrc:/images/feed\"/>");
 
       QString titleString = newsModel_->dataField(index.row(), "title").toString();
       if (!linkString.isEmpty()) {
@@ -1773,24 +1776,24 @@ void NewsTabWidget::loadNewspaper(int refresh)
         iconStr = "qrc:/images/starOn";
       }
       QString starAction = QString("<div class=\"star-action\">"
-                                   "<a href=\"quiterss://star.action.ui?#%1\" title='%3'>"
-                                   "<img class='quiterss-img' id=\"starAction%1\" src=\"%2\"/></a></div>").
+                                   "<a href=\"internal://star.action.ui?#%1\" title='%3'>"
+                                   "<img class='internal-img' id=\"starAction%1\" src=\"%2\"/></a></div>").
           arg(newsId).arg(iconStr).arg(tr("Mark News Star"));
       QString labelsMenu = QString("<div class=\"labels-menu\">"
-                                   "<a href=\"quiterss://labels.menu.ui?#%1\" title='%2'>"
-                                   "<img class='quiterss-img' id=\"labelsMenu%1\" src=\"qrc:/images/label_5\"/></a></div>").
+                                   "<a href=\"internal://labels.menu.ui?#%1\" title='%2'>"
+                                   "<img class='internal-img' id=\"labelsMenu%1\" src=\"qrc:/images/label_5\"/></a></div>").
           arg(newsId).arg(tr("Label"));
       QString openBrowserAction = QString("<div class=\"open-browser\">"
-                                          "<a href=\"quiterss://open.browser.ui?#%1\" title='%2'>"
-                                          "<img class='quiterss-img' id=\"openBrowser%1\" src=\"qrc:/images/openBrowser\"/></a></div>").
+                                          "<a href=\"internal://open.browser.ui?#%1\" title='%2'>"
+                                          "<img class='internal-img' id=\"openBrowser%1\" src=\"qrc:/images/openBrowser\"/></a></div>").
           arg(newsId).arg(tr("Open News in External Browser"));
       QString openHomeAction = QString("<div class=\"open-home\">"
-                                       "<a href=\"quiterss://open.home.ui?#%1\" title='%2'>"
-                                       "<img class='quiterss-img' id=\"openHome%1\" src=\"qrc:/images/homePageNewspaper\"/></a></div>").
+                                       "<a href=\"internal://open.home.ui?#%1\" title='%2'>"
+                                       "<img class='internal-img' id=\"openHome%1\" src=\"qrc:/images/homePageNewspaper\"/></a></div>").
           arg(newsId).arg(tr("Open Homepage Feed"));
       QString deleteAction = QString("<div class=\"delete-action\">"
-                                     "<a href=\"quiterss://delete.action.ui?#%1\" title='%2'>"
-                                     "<img class='quiterss-img' id=\"deleteAction%1\" src=\"qrc:/images/delete\"/></a></div>").
+                                     "<a href=\"internal://delete.action.ui?#%1\" title='%2'>"
+                                     "<img class='internal-img' id=\"deleteAction%1\" src=\"qrc:/images/delete\"/></a></div>").
           arg(newsId).arg(tr("Delete"));
       QString actionNews = starAction % labelsMenu %
           openBrowserAction %
@@ -1852,7 +1855,7 @@ void NewsTabWidget::hideWebContent()
 
 void NewsTabWidget::slotLinkClicked(QUrl url)
 {
-  if (url.scheme() == QLatin1String("quiterss")) {
+  if (url.scheme() == QLatin1String("internal")) {
     actionNewspaper(url);
     return;
   }
@@ -1874,7 +1877,8 @@ void NewsTabWidget::slotLinkClicked(QUrl url)
     }
   }
 
-  if ((mainWindow_->externalBrowserOn_ <= 0) &&
+  if ((mainWindow_->externalBrowserOn_ == Browser::internal ||
+       mainWindow_->externalBrowserOn_ == Browser::external) &&
       (webView_->buttonClick_ != LEFT_BUTTON_ALT)) {
     if (webView_->buttonClick_ == LEFT_BUTTON) {
       if (!webControlPanel_->isVisible()) {
@@ -1907,7 +1911,7 @@ void NewsTabWidget::slotLinkClicked(QUrl url)
 //----------------------------------------------------------------------------
 void NewsTabWidget::slotLinkHovered(const QString &link, const QString &, const QString &)
 {
-  if (QUrl(link).scheme() == QLatin1String("quiterss")) return;
+  if (QUrl(link).scheme() == QLatin1String("internal")) return;
 
   mainWindow_->statusBar()->showMessage(link.simplified(), 3000);
 }
@@ -1993,8 +1997,8 @@ void NewsTabWidget::openInBrowserNews()
 {
   if (type_ >= TabTypeWeb) return;
 
-  int externalBrowserOn_ = mainWindow_->externalBrowserOn_;
-  mainWindow_->externalBrowserOn_ = 0;
+  Browser externalBrowserOn_ = mainWindow_->externalBrowserOn_;
+  mainWindow_->externalBrowserOn_ = Browser::external;
   slotNewsViewDoubleClicked(newsView_->currentIndex());
   mainWindow_->externalBrowserOn_ = externalBrowserOn_;
 }
@@ -2163,8 +2167,8 @@ void NewsTabWidget::openLink()
  *----------------------------------------------------------------------------*/
 void NewsTabWidget::openLinkInNewTab()
 {
-  int externalBrowserOn_ = mainWindow_->externalBrowserOn_;
-  mainWindow_->externalBrowserOn_ = 0;
+  Browser externalBrowserOn_ = mainWindow_->externalBrowserOn_;
+  mainWindow_->externalBrowserOn_ = Browser::external;
 
   if (QApplication::keyboardModifiers() == Qt::NoModifier) {
     webView_->buttonClick_ = MIDDLE_BUTTON;
@@ -2187,7 +2191,9 @@ bool NewsTabWidget::openUrl(const QUrl &url)
     return QDesktopServices::openUrl(url);
 
   mainWindow_->isOpeningLink_ = true;
-  if ((mainWindow_->externalBrowserOn_ == 2) || (mainWindow_->externalBrowserOn_ == -1)) {
+  if (mainWindow_->externalBrowserOn_ == Browser::internal ||
+      mainWindow_->externalBrowserOn_ == Browser::externalSpecific)
+  {
 #if defined(Q_OS_WIN)
     quintptr returnValue = (quintptr)ShellExecute(
           0, 0,
@@ -2299,7 +2305,8 @@ void NewsTabWidget::showContextWebPage(const QPoint &p)
     const QWebHitTestResult &hitTest = webView_->page()->mainFrame()->hitTestContent(p);
     if (!hitTest.linkUrl().isEmpty() && hitTest.linkUrl().scheme() != "javascript") {
       linkUrl_ = hitTest.linkUrl();
-      if (mainWindow_->externalBrowserOn_ <= 0) {
+      if (mainWindow_->externalBrowserOn_ == Browser::internal ||
+          mainWindow_->externalBrowserOn_ == Browser::external) {
         menu.addSeparator();
         menu.addAction(urlExternalBrowserAct_);
       }
@@ -2610,7 +2617,7 @@ QString NewsTabWidget::getHtmlLabels(int row)
     if (strLabelIdList.contains(item->text(2))) {
       strLabelIdList.removeOne(item->text(2));
       QByteArray byteArray = item->data(0, CategoriesTreeWidget::ImageRole).toByteArray();
-      labelsString.append(QString("<td><img class='quiterss-img' src=\"data:image/png;base64,") % byteArray.toBase64() % "\"/></td>");
+      labelsString.append(QString("<td><img class='internal-img' src=\"data:image/png;base64,") % byteArray.toBase64() % "\"/></td>");
       labelsString.append("<td>" % item->text(0));
       if (strLabelIdList.count())
         labelsString.append(",");

@@ -359,7 +359,7 @@ void MainApplication::setTranslateApplication()
   if (!translator_)
     translator_ = new QTranslator(this);
   removeTranslator(translator_);
-  translator_->load(resourcesDir() + QString("/lang/quiterss_%1").arg(langFileName_));
+  translator_->load(resourcesDir() + QString("/lang/%1").arg(langFileName_));
   installTranslator(translator_);
 
   if (!qt_translator_)
