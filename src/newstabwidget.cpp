@@ -1362,6 +1362,7 @@ void NewsTabWidget::updateWebView(QModelIndex index)
     setWebToolbarVisible(false, false);
 
     QString htmlStr;
+/*
     QString content;
     {
       QSqlQuery q (db_);
@@ -1374,8 +1375,8 @@ void NewsTabWidget::updateWebView(QModelIndex index)
     }
     if (!content.isEmpty())
       qDebug() << content;
-
-    //QString content = newsModel_->dataField(index.row(), "content").toString();
+*/
+    QString content = newsModel_->dataField(index.row(), "content").toString();
     if (!content.contains(QzRegExp("<html(.*)</html>", Qt::CaseInsensitive))) {
       QString description = newsModel_->dataField(index.row(), "description").toString();
       if (content.isEmpty() || (description.length() > content.length())) {
@@ -1631,6 +1632,7 @@ void NewsTabWidget::loadNewspaper(int refresh)
     QString linkString = linkNewsString_;
 
     //QVariant row_id = newsModel_->dataField(index.row(), "id");
+    /*
     QString content;
     {
       QSqlQuery q (db_);
@@ -1641,8 +1643,8 @@ void NewsTabWidget::loadNewspaper(int refresh)
       content = q.value(0).toString();
       q.finish();
     }
-
-    //QString content = newsModel_->dataField(index.row(), "content").toString();
+*/
+    QString content = newsModel_->dataField(index.row(), "content").toString();
     if (!content.contains(QzRegExp("<html(.*)</html>", Qt::CaseInsensitive))) {
       QString description = newsModel_->dataField(index.row(), "description").toString();
       if (content.isEmpty() || (description.length() > content.length())) {

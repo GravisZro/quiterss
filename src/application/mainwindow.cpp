@@ -3630,7 +3630,7 @@ void MainWindow::showOptionDlg(int index)
   globals.setUserAgent(userAgent);
 
   externalBrowserOn_ = optionsDialog_->embeddedBrowserOn_->isChecked();
-  externalBrowserSpecified_ = optionsDialog_->defaultExternalBrowserOn_->isChecked();
+  externalBrowserSpecified_ = !optionsDialog_->defaultExternalBrowserOn_->isChecked();
 
   externalBrowser_ = optionsDialog_->otherExternalBrowserEdit_->text();
   autoLoadImages_ = optionsDialog_->autoLoadImages_->isChecked();
