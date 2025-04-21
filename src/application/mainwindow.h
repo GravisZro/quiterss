@@ -38,14 +38,6 @@ enum FeedReedType {
   FeedReadSwitchingTab
 };
 
-enum class Browser : int
-{
-  internal = -1,
-  external,
-  externalDefault,
-  externalSpecific,
-};
-
 class AdBlockIcon;
 
 class MainWindow : public QMainWindow
@@ -195,7 +187,8 @@ public:
   bool isOpeningLink_;  //!< Flag - link is being opened
   bool openLinkInBackgroundEmbedded_;
 
-  Browser externalBrowserOn_;
+  bool externalBrowserOn_;
+  bool externalBrowserSpecified_;
   QString externalBrowser_;
   bool javaScriptEnable_;
   bool pluginsEnable_;

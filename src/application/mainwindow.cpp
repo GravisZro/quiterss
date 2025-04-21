@@ -45,7 +45,7 @@ MainWindow::MainWindow(QWidget *parent)
   , optionsDialog_(NULL)
 {
   setObjectName("mainWindow");
-  setWindowTitle("RSS4All");
+  setWindowTitle(APPLICATION_NAME);
   setContextMenuPolicy(Qt::CustomContextMenu);
 
   db_ = QSqlDatabase::database();
@@ -1925,7 +1925,8 @@ void MainWindow::loadSettings()
 
   saveDBMemFileMiniSystemTray_ = settings.value("saveDBMemFileMiniSystemTray", true).toBool();
 
-  externalBrowserOn_ = static_cast<Browser>(settings.value("externalBrowserOn", 0).toInt());
+  externalBrowserOn_ = settings.value("externalBrowserOn", false).toBool();
+  externalBrowserSpecified_ = settings.value("externalBrowserSpecified", false).toBool();
   externalBrowser_ = settings.value("externalBrowser", "").toString();
   javaScriptEnable_ = settings.value("javaScriptEnable", true).toBool();
   pluginsEnable_ = settings.value("pluginsEnable", true).toBool();
@@ -2242,7 +2243,8 @@ void MainWindow::saveSettings()
   settings.setValue("cleanUpDeleted", cleanUpDeleted_);
   settings.setValue("optimizeDB", optimizeDB_);
 
-  settings.setValue("externalBrowserOn", static_cast<int>(externalBrowserOn_));
+  settings.setValue("externalBrowserOn", externalBrowserOn_);
+  settings.setValue("externalBrowserSpecified", externalBrowserSpecified_);
   settings.setValue("externalBrowser", externalBrowser_);
   settings.setValue("javaScriptEnable", javaScriptEnable_);
   settings.setValue("pluginsEnable", pluginsEnable_);
@@ -3203,15 +3205,10 @@ void MainWindow::showOptionDlg(int index)
   optionsDialog_->numberRequests_->setValue(numberRequests);
   optionsDialog_->numberRepeats_->setValue(numberRepeats);
 
-  optionsDialog_->embeddedBrowserOn_->setChecked(externalBrowserOn_ == Browser::internal ||
-                                                 externalBrowserOn_ == Browser::external);
-  optionsDialog_->externalBrowserOn_->setChecked(externalBrowserOn_ == Browser::externalDefault ||
-                                                 externalBrowserOn_ == Browser::externalSpecific);
-
-  optionsDialog_->defaultExternalBrowserOn_->setChecked(externalBrowserOn_ == Browser::externalDefault ||
-                                                        externalBrowserOn_ == Browser::externalSpecific);
-  optionsDialog_->otherExternalBrowserOn_->setChecked(externalBrowserOn_ == Browser::internal ||
-                                                      externalBrowserOn_ == Browser::externalSpecific);
+  optionsDialog_->embeddedBrowserOn_->setChecked(externalBrowserOn_);
+  optionsDialog_->externalBrowserOn_->setChecked(!externalBrowserOn_);
+  optionsDialog_->defaultExternalBrowserOn_->setChecked(!externalBrowserSpecified_);
+  optionsDialog_->otherExternalBrowserOn_->setChecked(externalBrowserSpecified_);
   optionsDialog_->otherExternalBrowserEdit_->setText(externalBrowser_);
   optionsDialog_->autoLoadImages_->setChecked(autoLoadImages_);
   optionsDialog_->javaScriptEnable_->setChecked(javaScriptEnable_);
@@ -3631,17 +3628,8 @@ void MainWindow::showOptionDlg(int index)
   settings.setValue("Settings/userAgent", userAgent);
   globals.setUserAgent(userAgent);
 
-  if (optionsDialog_->embeddedBrowserOn_->isChecked()) {
-    if (optionsDialog_->defaultExternalBrowserOn_->isChecked())
-      externalBrowserOn_ = Browser::external;
-    else
-      externalBrowserOn_ = Browser::internal;
-  } else {
-    if (optionsDialog_->defaultExternalBrowserOn_->isChecked())
-      externalBrowserOn_ = Browser::externalDefault;
-    else
-      externalBrowserOn_ = Browser::externalSpecific;
-  }
+  externalBrowserOn_ = optionsDialog_->embeddedBrowserOn_->isChecked();
+  externalBrowserSpecified_ = optionsDialog_->defaultExternalBrowserOn_->isChecked();
 
   externalBrowser_ = optionsDialog_->otherExternalBrowserEdit_->text();
   autoLoadImages_ = optionsDialog_->autoLoadImages_->isChecked();
@@ -7653,7 +7641,7 @@ void MainWindow::setTextTitle(const QString &text, NewsTabWidget *widget)
   if (currentNewsTab != widget) return;
 
   if (text.isEmpty()) setWindowTitle("RSS4All");
-  else setWindowTitle(QString("%1 - RSS4All").arg(text));
+  else setWindowTitle(QString("%1 - %2").arg(text).arg(APPLICATION_NAME));
 }
 
 /** @brief Enable|Disable indent in feeds tree
