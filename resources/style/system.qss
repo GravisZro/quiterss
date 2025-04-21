@@ -1,4 +1,4 @@
-/* QuiteRSS System Style */
+/* System Style */
 
 #tabBar_ QTabWidget::tab-bar {
 	bottom: -1px;

@@ -1,11 +1,11 @@
-/* QuiteRSS Orange Style */
+/* Green Style */
 
 QMenuBar {
 	background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
-								stop:0 #FFE8DC,
-								stop:0.4 #FFE5D3,
-								stop:0.5 #FFE1C8,
-								stop:1 #FFE8DC);
+										stop:0 #e0eee0,
+										stop:0.4 #d8eed8,
+										stop:0.5 #cceecc,
+										stop:1 #e0eee0);
 	color: #000000;
 	padding: 1px;
 }
@@ -18,27 +18,27 @@ QMenuBar::item {
 }
 
 QMenuBar::item:selected {
-	border: 1px solid #E0B66E;
+	border: 1px solid #84cc84;
 	background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
-								stop:0 #FFF6E8,
-								stop:0.4 #FEE9E1,
-								stop:0.5 #FEE6D8,
-								stop:1 #FFF6E8);
+								stop:0 #e9ffe9,
+								stop:0.4 #e1eee1,
+								stop:0.5 #d9eed9,
+								stop:1 #e9ffe9);
 }
 
 QMenuBar::item:pressed {
-	border: 1px solid #DE951C;
+	border: 1px solid #34aa34;
 	border-bottom: none;
 	background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
-								stop:0 #FFB360,
-								stop:0.4 #FFAD54,
-								stop:0.5 #FFA641,
-								stop:1 #FFB360);
+								stop:0 #7acc7a,
+								stop:0.4 #70c870,
+								stop:0.5 #60c460,
+								stop:1 #7acc7a);
 	color: white;
 }
 
 #feedsView_, #newsCategoriesTree_ {
-	background: #fff9f3;
+	background: #F9FFF9;
 }
 
 #feedsView_::item, #newsView_::item, #newsCategoriesTree_::item {
@@ -136,10 +136,10 @@ QToolBar {
 
 #progressBar_::chunk, #splashProgress::chunk {
 	background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
-								stop:0 #FFB360,
-								stop:0.4 #FFAD54,
-								stop:0.5 #FFA641,
-								stop:1 #FFB360);
+								stop:0 #90E890,
+								stop:0.4 #7CD07C,
+								stop:0.5 #60C060,
+								stop:1 #60D060);
 	width: 1px;
 }
 
@@ -206,10 +206,10 @@ QHeaderView::up-arrow {
 }
 
 #contentLabel_ {
-	background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
-								stop:0.1 #FFDCCC,
-								stop:0.5 #FFD4A0,
-								stop:0.9 #FFDCCC);
+	background-color: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+										stop:0.1 #d8eed8,
+										stop:0.5 #B8EEB8,
+										stop:0.9 #d8eed8);
 	color: #000000;
 }
 
@@ -219,8 +219,7 @@ QHeaderView::up-arrow {
 
 #categoriesTree::item, #fontTree::item,
 #languageFileList_::item, #filtersTree::item,
-#shortcutTree::item, #labelsTree_::item,
-#colorsTree_::item {
+#shortcutTree::item, #labelsTree_::item {
 	min-height: 20px;
 }
 
@@ -241,24 +240,24 @@ QMainWindow::separator {
 }
 
 #notificationWidget {
-	border: 1px solid #FFAD54;
+	border: 1px solid #70c870;
 	border-radius: 8px;
 }
 
 #titleNotification {
-	border-bottom: 1px solid #FFE1C8;
+	border-bottom: 1px solid #cceecc;
 	border-top-left-radius: 8px;
 	border-top-right-radius: 8px;
 }
 
 #bottomNotification {
-	border-top: 1px solid #FFE1C8;
+	border-top: 1px solid #cceecc;
 	border-bottom-left-radius: 8px;
 	border-bottom-right-radius: 8px;
 }
 
 #feedItemNotification {
-	border-bottom: 1px solid #FFAD54;
+	border-bottom: 1px solid #70c870;
 }
 
 #pushButtonNull {

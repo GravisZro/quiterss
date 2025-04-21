@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-set(TARGET_NAME "QuiteRSS")
+set(TARGET_NAME "RSS4All")
 
 project(${TARGET_NAME}
     DESCRIPTION ${TARGET_NAME}
@@ -26,9 +26,11 @@ else()
     set(GIT_REV_HASH "\"${GIT_REV_HASH}\"")
 endif()
 
+set(APPLICATION_NAME "#define APPLICATION_NAME ${TARGET_NAME}")
 set(VERSION "#define VCS_REVISION ${GIT_REV_COUNT}")
 set(HASH "#define VCS_SHORT_HASH ${GIT_REV_HASH}")
-file(WRITE ${CMAKE_CURRENT_SOURCE_DIR}/src/VersionRev.h "${VERSION}")
+file(WRITE ${CMAKE_CURRENT_SOURCE_DIR}/src/VersionRev.h "${APPLICATION_NAME}")
+file(APPEND ${CMAKE_CURRENT_SOURCE_DIR}/src/VersionRev.h "${VERSION}")
 file(APPEND ${CMAKE_CURRENT_SOURCE_DIR}/src/VersionRev.h "${HASH}")
 
 # qt setting
@@ -96,50 +98,50 @@ target_link_libraries(${TARGET_NAME}
 )
 
 # qt resource file
-target_sources(${TARGET_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/QuiteRSS.qrc)
-target_sources(${TARGET_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/data/ca-bundle.qrc)
+target_sources(${TARGET_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/resources/resources.qrc)
+target_sources(${TARGET_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/resources/certdata/ca-bundle.qrc)
 
 # windows resource file
 if (WIN32)
-    execute_process(COMMAND windres --codepage=65001 -i ${CMAKE_CURRENT_SOURCE_DIR}/QuiteRSSApp.rc -o ${CMAKE_CURRENT_BINARY_DIR}/QuiteRSSApp.o --include-dir=./)
+    execute_process(COMMAND windres --codepage=65001 -i ${CMAKE_CURRENT_SOURCE_DIR}/resources/rss4all.rc -o ${CMAKE_CURRENT_BINARY_DIR}/RSS4AllApp.o --include-dir=./)
     target_link_libraries(${TARGET_NAME}
-        ${CMAKE_CURRENT_BINARY_DIR}/QuiteRSSApp.o
+        ${CMAKE_CURRENT_BINARY_DIR}/RSS4AllApp.o
     )
 endif (WIN32)
 
 # qt language file
 set(LANG_TS
-    quiterss_ar
-    quiterss_bg
-    quiterss_cs
-    quiterss_de
-    quiterss_el_GR
-    quiterss_es
-    quiterss_fa
-    quiterss_fi
-    quiterss_fr
-    quiterss_gl
-    quiterss_hi
-    quiterss_hu
-    quiterss_it
-    quiterss_ja
-    quiterss_ko
-    quiterss_lt
-    quiterss_nl
-    quiterss_pl
-    quiterss_pt_BR
-    quiterss_pt_PT
-    quiterss_ro_RO
-    quiterss_ru
-    quiterss_sk
-    quiterss_sr
-    quiterss_sv
-    quiterss_tg_TJ
-    quiterss_tr
-    quiterss_uk
-    quiterss_vi
-    quiterss_zh_CN
-    quiterss_zh_TW
+    ar
+    bg
+    cs
+    de
+    el_GR
+    es
+    fa
+    fi
+    fr
+    gl
+    hi
+    hu
+    it
+    ja
+    ko
+    lt
+    nl
+    pl
+    pt_BR
+    pt_PT
+    ro_RO
+    ru
+    sk
+    sr
+    sv
+    tg_TJ
+    tr
+    uk
+    vi
+    zh_CN
+    zh_TW
 )
 
 add_custom_target(build-time-make-directory ALL

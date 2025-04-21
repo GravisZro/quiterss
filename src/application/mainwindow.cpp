@@ -259,7 +259,7 @@ void MainWindow::changeEvent(QEvent *event)
     }
   } else if (event->type() == QEvent::ActivationChange) {
     if (isActiveWindow() && (behaviorIconTray_ == CHANGE_ICON_TRAY)) {
-      traySystem->setIcon(QIcon(":/images/quiterss128"));
+      traySystem->setIcon(QIcon(":/images/appicon128"));
     }
   } else if (event->type() == QEvent::LanguageChange) {
     retranslateStrings();
@@ -610,8 +610,8 @@ void MainWindow::createStatusBar()
 // ---------------------------------------------------------------------------
 void MainWindow::createTray()
 {
-  traySystem = new QSystemTrayIcon(QIcon(":/images/quiterss128"), this);
-  traySystem->setToolTip("QuiteRSS");
+  traySystem = new QSystemTrayIcon(QIcon(":/images/appicon128"), this);
+  traySystem->setToolTip(APPLICATION_NAME);
 
 #ifndef Q_OS_MAC
   connect(traySystem,SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
@@ -2636,7 +2636,7 @@ void MainWindow::slotExportFeeds()
   xml.writeStartElement("opml");
   xml.writeAttribute("version", "2.0");
   xml.writeStartElement("head");
-  xml.writeTextElement("title", "QuiteRSS");
+  xml.writeTextElement("title", APPLICATION_NAME);
   xml.writeTextElement("dateModified", QDateTime::currentDateTime().toString());
   xml.writeEndElement(); // </head>
 
@@ -3604,7 +3604,7 @@ void MainWindow::showOptionDlg(int index)
   if (behaviorIconTray_ > CHANGE_ICON_TRAY) {
     emit signalRefreshInfoTray();
   } else {
-    traySystem->setIcon(QIcon(":/images/quiterss128"));
+    traySystem->setIcon(QIcon(":/images/appicon128"));
   }
   singleClickTray_ = optionsDialog_->singleClickTray_->isChecked();
   clearStatusNew_ = optionsDialog_->clearStatusNew_->isChecked();
@@ -4658,8 +4658,7 @@ void MainWindow::retranslateStrings()
   statusAll_->setText(QString(" " + tr("All: %1") + " ").arg(str));
 
   str = traySystem->toolTip();
-  QString info =
-      "QuiteRSS\n" +
+  QString info = APPLICATION_NAME "\n" +
       QString(tr("New News: %1")).arg(str.section(": ", 1).section("\n", 0, 0)) +
       QString("\n") +
       QString(tr("Unread News: %1")).arg(str.section(": ", 2));
@@ -5604,7 +5603,7 @@ void MainWindow::slotRefreshInfoTray(int newCount, int unreadCount)
 
   // Setting tooltip text
   QString info =
-      "QuiteRSS\n" +
+      APPLICATION_NAME "\n" +
       QString(tr("New News: %1")).arg(newCount) +
       QString("\n") +
       QString(tr("Unread News: %1")).arg(unreadCount);
@@ -5657,7 +5656,7 @@ void MainWindow::slotRefreshInfoTray(int newCount, int unreadCount)
     }
     // Draw icon without number
     else {
-      traySystem->setIcon(QIcon(":/images/quiterss128"));
+      traySystem->setIcon(QIcon(":/images/appicon128"));
     }
   }
 }

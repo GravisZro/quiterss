@@ -1,4 +1,4 @@
-/* QuiteRSS Dark Style */
+/* Dark Style */
 
 QWidget {
     background-color: #464546; /* dark */

@@ -3653,22 +3653,22 @@ Ancient news could reappear</source>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="325"/>
-        <source>Run QuiteRSS at Windows startup</source>
+        <source>Run %1 at Windows startup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="354"/>
-        <source>starting QuiteRSS</source>
+        <source>starting %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="355"/>
-        <source>minimizing QuiteRSS</source>
+        <source>minimizing %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/optionsdialog.cpp" line="356"/>
-        <source>closing QuiteRSS</source>
+        <source>closing %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

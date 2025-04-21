@@ -24,8 +24,8 @@ MainApplication::MainApplication(int &argc, char **argv)
   , diskCache_(0)
   , downloadManager_(0)
 {
-  setApplicationName("QuiteRss");
-  setOrganizationName("QuiteRss");
+  setApplicationName(APPLICATION_NAME);
+  setOrganizationName(APPLICATION_NAME);
   setApplicationVersion(STRPRODUCTVER);
   globals.init();
 
@@ -47,7 +47,7 @@ MainApplication::MainApplication(int &argc, char **argv)
     }
   }
 
-  setWindowIcon(QIcon(":/images/quiterss128"));
+  setWindowIcon(QIcon(":/images/appicon128"));
   setQuitOnLastWindowClosed(false);
 
   createSettings();
@@ -208,7 +208,7 @@ void MainApplication::connectDatabase()
   }
 
 #if defined(HAVE_X11)
-  fileName = "~/.local/share/data/QuiteRss/QuiteRss/feeds.db";
+  fileName = "~/.local/share/data/" APPLICATION_NAME "/" APPLICATION_NAME "/feeds.db";
   if (!QFile(dbFileName()).exists() && QFile(fileName).exists()) {
     QFile::copy(fileName, dbFileName());
   }
