@@ -515,15 +515,13 @@ void ParseObject::addAtomNewsIntoBase(NewsItemStruct *newsItem)
     }
 
     qStr = QString("INSERT INTO news("
-                   "feedId, description, content, guid, title, author_name, "
+                   "feedId, guid, title, author_name, "
                    "author_uri, author_email, published, received, "
                    "link_href, link_alternate, category, comments, "
                    "enclosure_url, enclosure_type, enclosure_length, new, read) "
                    "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     q.prepare(qStr);
     q.addBindValue(parseFeedId_);
-    q.addBindValue(newsItem->description);
-    q.addBindValue(newsItem->content);
     q.addBindValue(newsItem->id);
     q.addBindValue(newsItem->title);
     q.addBindValue(newsItem->author);
@@ -547,7 +545,19 @@ void ParseObject::addAtomNewsIntoBase(NewsItemStruct *newsItem)
       qWarning() << __PRETTY_FUNCTION__ << __LINE__
                  << "q.lastError(): " << q.lastError().text();
     }
+    QVariant row_id = q.lastInsertId();
     q.finish();
+
+    q.prepare("INSERT INTO articles("
+              "id, feedId, title, description, content) "
+              "VALUES(?, ?, ?, ?, ?)");
+      q.addBindValue(row_id);
+      q.addBindValue(parseFeedId_);
+      q.addBindValue(newsItem->title);
+      q.addBindValue(newsItem->description);
+      q.addBindValue(newsItem->content);
+    q.exec();
+
     qDebug() << "q.exec(" << q.lastQuery() << ")";
     qDebug() << "       " << parseFeedId_;
     qDebug() << "       " << newsItem->description;
@@ -855,7 +865,21 @@ void ParseObject::addRssNewsIntoBase(NewsItemStruct *newsItem)
       qWarning() << __PRETTY_FUNCTION__ << __LINE__
                  << "q.lastError(): " << q.lastError().text();
     }
+    QVariant row_id = q.lastInsertId();
     q.finish();
+
+
+    q.prepare("INSERT INTO articles("
+              "id, feedId, title, description, content) "
+              "VALUES(?, ?, ?, ?, ?)");
+    q.addBindValue(row_id);
+    q.addBindValue(parseFeedId_);
+    q.addBindValue(newsItem->title);
+    q.addBindValue(newsItem->description);
+    q.addBindValue(newsItem->content);
+    q.exec();
+    q.finish();
+
     qDebug() << "q.exec(" << q.lastQuery() << ")";
     qDebug() << "       " << parseFeedId_;
     qDebug() << "       " << newsItem->description;

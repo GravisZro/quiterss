@@ -1238,7 +1238,7 @@ void UpdateObject::startCleanUp(bool isShutdown, QStringList feedsIdList, QList<
       if (fullCleanUp)
         q.exec(QString("DELETE FROM news WHERE feedId=='%1' AND deleted >= 2").arg(feedId));
 
-      QString qStr1 = QString("UPDATE news SET description='', content='', received='', "
+      QString qStr1 = QString("UPDATE news SET received='', "
                               "author_name='', author_uri='', author_email='', "
                               "category='', new='', read='', starred='', label='', "
                               "deleteDate='', feedParentId='', deleted=2");
@@ -1351,7 +1351,7 @@ void UpdateObject::startCleanUp(bool isShutdown, QStringList feedsIdList, QList<
     }
 
     if (cleanUpDeleted) {
-      q.exec("UPDATE news SET description='', content='', received='', "
+      q.exec("UPDATE news SET received='', "
              "author_name='', author_uri='', author_email='', "
              "category='', new='', read='', starred='', label='', "
              "deleteDate='', feedParentId='', deleted=2 WHERE deleted==1");

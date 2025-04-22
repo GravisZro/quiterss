@@ -9,7 +9,7 @@
 
 #include <sqlite3.h>
 
-const int versionDB = 17;
+const int versionDB = 18;
 
 const QString kCreateFeedsTableQuery(
     "CREATE TABLE feeds("
@@ -114,8 +114,6 @@ const QString kCreateNewsTableQuery(
     "feedId integer, "                     // feed id from feed table
     "guid varchar, "                       // news unique number
     "guidislink varchar default 'true', "  // flag shows that news unique number is URL-link to news
-    "description varchar, "                // brief description
-    "content varchar, "                    // full content (atom)
     "title varchar, "                      // title
     "published varchar, "                  // publish timestamp
     "modified varchar, "                   // modification timestamp
@@ -146,6 +144,15 @@ const QString kCreateNewsTableQuery(
     "rights varchar, "                     // copyrights
     "deleteDate varchar, "                 // news delete timestamp
     "feedParentId integer default 0 "      // parent feed id from feed table
+    ")");
+
+
+const QString kCreateArticlesTableQuery(
+    "CREATE TABLE articles("
+    "id integer primary key, "
+    "feedId integer, "                     // feed id from feed table
+    "content varchar, "                    // full content (atom)
+    "title varchar "                      // title
     ")");
 
 const QString kCreateFiltersTable(
@@ -310,6 +317,30 @@ void Database::prepareDatabase()
           q.exec("ALTER table feeds ADD COLUMN DoubleClickAction integer default 0");
           q.exec("ALTER table feeds ADD COLUMN MiddleClickAction integer default 0");
         }
+        if (dbVersion < 18)
+        {
+          db.transaction();
+          q.exec("DROP TABLE articles");
+          q.exec(kCreateArticlesTableQuery);
+          QSqlQuery data(db);
+          data.exec("SELECT id, feedId, title, content, description FROM news");
+          while (data.next())
+          {
+            q.prepare("INSERT INTO articles(id, feedId, title, content) VALUES(:id, :feedId, :title, :content)");
+              q.bindValue(":id", data.value(0));
+              q.bindValue(":feedId", data.value(1));
+              q.bindValue(":title", data.value(2));
+              if(data.value(3).toString().isNull())
+                q.bindValue(":content", data.value(4));
+              else
+                q.bindValue(":content", data.value(3));
+            q.exec();
+          }
+          q.clear();
+          q.exec("ALTER TABLE news DROP COLUMN description");
+          q.exec("ALTER TABLE news DROP COLUMN content");
+          db.commit();
+        }
 
         // Update appVersion anyway
         if (appVersion.isEmpty()) {
@@ -347,6 +378,7 @@ void Database::createTables(QSqlDatabase &db)
   db.transaction();
 
   db.exec(kCreateFeedsTableQuery);
+  db.exec(kCreateArticlesTableQuery);
   db.exec(kAddColumnsFeedsTableQuery);
   db.exec(kCreateNewsTableQuery);
   // Create index for feedId field

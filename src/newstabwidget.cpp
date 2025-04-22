@@ -1,5 +1,7 @@
 #include "newstabwidget.h"
 
+#include <iostream>
+
 #include "mainapplication.h"
 #include "adblockicon.h"
 #include "settings.h"
@@ -1362,21 +1364,21 @@ void NewsTabWidget::updateWebView(QModelIndex index)
     setWebToolbarVisible(false, false);
 
     QString htmlStr;
-/*
     QString content;
     {
       QSqlQuery q (db_);
       q.prepare("SELECT content FROM articles WHERE ID=?");
-      q.addBindValue(newsModel_->dataField(index.row(), "id"));
+      q.addBindValue(newsId);
+      //q.addBindValue(newsModel_->dataField(index.row(), "id"));
       q.exec();
       Q_ASSERT(q.next());
       content = q.value(0).toString();
       q.finish();
     }
     if (!content.isEmpty())
-      qDebug() << content;
-*/
-    QString content = newsModel_->dataField(index.row(), "content").toString();
+      std::cout << content.toStdString() << std::endl;
+
+//    QString content = newsModel_->dataField(index.row(), "content").toString();
     if (!content.contains(QzRegExp("<html(.*)</html>", Qt::CaseInsensitive))) {
       QString description = newsModel_->dataField(index.row(), "description").toString();
       if (content.isEmpty() || (description.length() > content.length())) {
@@ -1632,19 +1634,21 @@ void NewsTabWidget::loadNewspaper(int refresh)
     QString linkString = linkNewsString_;
 
     //QVariant row_id = newsModel_->dataField(index.row(), "id");
-    /*
     QString content;
     {
       QSqlQuery q (db_);
       q.prepare("SELECT content FROM articles WHERE ID=?");
-      q.addBindValue(newsModel_->dataField(index.row(), "id"));
+      q.addBindValue(newsId);
+      //q.addBindValue(newsModel_->dataField(index.row(), "id"));
       q.exec();
       Q_ASSERT(q.next());
       content = q.value(0).toString();
       q.finish();
     }
-*/
-    QString content = newsModel_->dataField(index.row(), "content").toString();
+    if(!content.isEmpty())
+      std::cout << content.toStdString() << std::endl;
+
+    //QString content = newsModel_->dataField(index.row(), "content").toString();
     if (!content.contains(QzRegExp("<html(.*)</html>", Qt::CaseInsensitive))) {
       QString description = newsModel_->dataField(index.row(), "description").toString();
       if (content.isEmpty() || (description.length() > content.length())) {
@@ -2616,6 +2620,7 @@ QString NewsTabWidget::getLinkNews(int row)
 
 void NewsTabWidget::savePageAsDescript()
 {
+  return;
   if (type_ >= TabTypeWeb) return;
 
   QModelIndex curIndex = newsView_->currentIndex();
